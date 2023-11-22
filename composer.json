@@ -1,0 +1,15 @@
+{
+    "name": "artklen/ub",
+    "type": "library",
+    "description": "URL builder",
+    "keywords": [],
+    "license": "MIT",
+    "require": {
+        "php": ">=8.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/UB.php"
+        ]
+    }
+}

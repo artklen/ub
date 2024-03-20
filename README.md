@@ -89,7 +89,7 @@ print json_encode($ub->getAllValues()) . "\n";
 
 Можно изменять сам объект или создавать изменённую копию.
 Методы, отвечающие за каждый из способов, отличаются характерными названиями и сигнатурами.
-Копирующие методы возвращают копию (`self`), не копирующие — не возвращают ничего (`void`).
+Копирующие методы возвращают копию (`static`), не копирующие — не возвращают ничего (`void`).
 Названия копирующих методов начинаются с предлогов `with` и `without`, у не копирующих — начинаются с глагола.
 
 | Метод              | Действие                                                              | Сигнатура                                 |
@@ -107,13 +107,13 @@ print json_encode($ub->getAllValues()) . "\n";
 | `unsetValue`       | Удалить значение параметра                                            | `unsetValue(string $name): void`          |
 | `appendValue`      | Добавить элемент к массиву значений параметра (аналог операции `[]=`) | `appendValue(string $name, $value): void` |
 | ↩️                 |                                                                       |                                           |
-| `withPath`         | Изменить путь                                                         | `withPath(string $path): self`            |
-| `withFields`       | Изменить список полей                                                 | `withFields(array $fields): self`         |
-| `with`             | Установить значение параметра                                         | `with(string $name, $value): self`        |
-| `without`          | Удалить значение параметра                                            | `without(string $name): self`             |
-| `withValues`       | Установить значения всех параметров                                   | ` withValues(array $values): self`        |
-| `withoutValues`    | Удалить значения заданного списка параметров                          | `withoutValues(array $values): self`      |
-| `withoutAllValues` | Удалить значения всех параметров                                      | `withoutAllValues(): self`                |
+| `withPath`         | Изменить путь                                                         | `withPath(string $path): static`          |
+| `withFields`       | Изменить список полей                                                 | `withFields(array $fields): static`       |
+| `with`             | Установить значение параметра                                         | `with(string $name, $value): static`      |
+| `without`          | Удалить значение параметра                                            | `without(string $name): static`           |
+| `withValues`       | Установить значения всех параметров                                   | ` withValues(array $values): static`      |
+| `withoutValues`    | Удалить значения заданного списка параметров                          | `withoutValues(array $values): static`    |
+| `withoutAllValues` | Удалить значения всех параметров                                      | `withoutAllValues(): static `             |
 
 Имплементация `ArrayAccess` и `IteratorAggregate` работает по массиву параметров.
 Порядок обхода итератора не определён. Если будет потребность, можно сделать обход по порядку

@@ -83,14 +83,14 @@ class UB implements ArrayAccess, IteratorAggregate
         );
     }
 
-    public function withPath(string $path): self
+    public function withPath(string $path): static
     {
         $copy = clone $this;
         $copy->path = $path;
         return $copy;
     }
 
-    public function with(string $name, $value): self
+    public function with(string $name, $value): static
     {
         $copy = clone $this;
 
@@ -103,14 +103,14 @@ class UB implements ArrayAccess, IteratorAggregate
         return $copy;
     }
 
-    public function without(string $name): self
+    public function without(string $name): static
     {
         $copy = clone $this;
         unset($copy->values[$name]);
         return $copy;
     }
 
-    public function withValues(array $values): self
+    public function withValues(array $values): static
     {
         $copy = clone $this;
 
@@ -125,7 +125,7 @@ class UB implements ArrayAccess, IteratorAggregate
         return $copy;
     }
 
-    public function withoutValues(array $values): self
+    public function withoutValues(array $values): static
     {
         $copy = clone $this;
 
@@ -136,14 +136,14 @@ class UB implements ArrayAccess, IteratorAggregate
         return $copy;
     }
 
-    public function withoutAllValues(): self
+    public function withoutAllValues(): static
     {
         $copy = clone $this;
         $copy->values = [];
         return $copy;
     }
 
-    public function withFields(array $fields): self
+    public function withFields(array $fields): static
     {
         $copy = clone $this;
         $copy->fields = array_unique(array_merge($copy->fields, $fields));
